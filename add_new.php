@@ -1,0 +1,193 @@
+<?php
+require_once "tpl.class.php";
+require_once "db.php";
+//开启session
+session_start();
+@$u_num=$_SESSION['re_u_num'];
+	if($u_num==""){
+	echo "<script>alert('您还没有登陆，请登陆！');window.location='index.php';</script>";
+}else{
+	$smarty->assign("u_num",$u_num);
+}
+//查询员工姓名
+	$db=new DB();
+	$sql="select u_name from user where u_num='$u_num';";
+	$res=$db->execute($sql);
+	foreach($res as $value);
+	$u_name=$value['u_name'];
+	$smarty->assign("u_name",$u_name);
+
+//POST
+//新增
+if(isset($_POST['add_list'])){
+	$email=$_POST['email'];
+	$order_id=$_POST['order_id'];
+	$good_id=$_POST['good_id'];
+	$store=$_POST['store'];
+	$who_id=$_POST['who_id'];
+	$who_phone=$_POST['who_phone'];
+	$who_code=$_POST['who_code'];
+	$who_house=$_POST['who_house'];
+	$who_house1=$_POST['who_house1'];
+	$who_house2=$_POST['who_house2'];
+	$who_name=$_POST['who_name'];
+	$receive_phone=$_POST['receive_phone'];
+	$receive_code=$_POST['receive_code'];
+	$receive_house=$_POST['receive_house'];
+	$receive_house1=$_POST['receive_house1'];
+	$receive_house2=$_POST['receive_house2'];
+	$receive_name=$_POST['receive_name'];
+	$total_money=$_POST['total_money'];
+	$ems_money=$_POST['ems_money'];
+	$bill=$_POST['bill'];
+	$point=$_POST['point'];
+	$cheap=$_POST['cheap'];
+	$tax=$_POST['tax'];
+	$goods=$_POST['goods'];
+	$buy_money=$_POST['buy_money'];
+	$buy_method=$_POST['buy_method'];
+	$to_method=$_POST['to_method'];
+	$send_num=$_POST['send_num'];
+	$send_day=$_POST['send_day'];
+	$start_day=$_POST['start_day'];
+	$re_good1=$_POST['re_good1'];
+	$re_good2=$_POST['re_good2'];
+	$re_good3=$_POST['re_good3'];
+	$re_good4=$_POST['re_good4'];
+	$re_good5=$_POST['re_good5'];
+	$add_type=$_POST['add_type'];
+	$over_day=$_POST['over_day'];
+	$pay_method=$_POST['pay_method'];
+	$money=$_POST['money'];
+	$receive_money=$_POST['receive_money'];
+	$send_method=$_POST['send_method'];
+	$is_miss=$_POST['is_miss'];
+	$is_bad=$_POST['is_bad'];
+	$say_type=$_POST['say_type'];
+	$is_photo=$_POST['is_photo'];
+	$is_receive=$_POST['is_receive'];
+	$is_money=$_POST['is_money'];
+	$ems=$_POST['ems'];
+	$other=$_POST['other'];
+	$method=$_POST['method'];
+	$db=new DB();
+	//获得总数
+	$sql="select id from repair_list order by id desc limit 0,1;";//1的效率比*高
+	$res=$db->execute($sql);
+	foreach($res as $value);
+	$end_count=$value['id'];
+	$end_count+=1;
+	$sql="INSERT INTO repair_list (
+		id,
+		email,
+		order_id,
+		good_id,
+		store,
+		who_id,
+		who_phone,
+		who_code,
+		who_house,
+		who_house1,
+		who_house2,
+		who_name,
+		receive_phone,
+		receive_code,
+		receive_house,
+		receive_house1,
+		receive_house2,
+		receive_name,
+		total_money,
+		ems_money,
+		bill,
+		point,
+		cheap,
+		tax,
+		goods,
+		buy_money,
+		buy_method,
+		to_method,
+		send_num,
+		send_day,
+		start_day,
+		method,
+		re_good1,
+		re_good2,
+		re_good3,
+		re_good4,
+		re_good5,
+		add_type,
+		over_day,
+		pay_method,
+		money,
+		receive_money,
+		send_method,
+		is_miss,
+		is_bad,
+		say_type,
+		is_photo,
+		is_receive,
+		is_money,
+		ems,
+		u_name,
+		u_num,
+		other
+	) values (
+		'{$end_count}',
+		'{$email}',
+		'{$order_id}',
+		'{$good_id}',
+		'{$store}',
+		'{$who_id}',
+		'{$who_phone}',
+		'{$who_code}',
+		'{$who_house}',
+		'{$who_house1}',
+		'{$who_house2}',
+		'{$who_name}',
+		'{$receive_phone}',
+		'{$receive_code}',
+		'{$receive_house}',
+		'{$receive_house1}',
+		'{$receive_house2}',
+		'{$receive_name}',
+		'{$total_money}',
+		'{$ems_money}',
+		'{$bill}',
+		'{$point}',
+		'{$cheap}',
+		'{$tax}',
+		'{$goods}',
+		'{$buy_money}',
+		'{$buy_method}',
+		'{$to_method}',
+		'{$send_num}',
+		'{$send_day}',
+		'{$start_day}',
+		'{$method}',
+		'{$re_good1}',
+		'{$re_good2}',
+		'{$re_good3}',
+		'{$re_good4}',
+		'{$re_good5}',
+		'{$add_type}',
+		'{$over_day}',
+		'{$pay_method}',
+		'{$money}',
+		'{$receive_money}',
+		'{$send_method}',
+		'{$is_miss}',
+		'{$is_bad}',
+		'{$say_type}',
+		'{$is_photo}',
+		'{$is_receive}',
+		'{$is_money}',
+		'{$ems}',
+		'{$u_name}',
+		'{$u_num}',
+		'{$other}');";
+		$res=$db->execute($sql);
+		echo"<script>alert('新增一条！系统将退回开始页！');window.location='show.php'</script>";
+}
+//Smarty
+$smarty->display("add_new.tpl");
+?>
