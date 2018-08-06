@@ -7,7 +7,9 @@
 	require_once "db.php";
 	ini_set('memory_limit','1000M');
 	$dir = dirname(__FILE__);
+	require_once($dir."/pdo/oms.class.php");	//引入pdo
 	require_once($dir."/myclass/PHPExcel/PHPExcel.php");//引入PHPExcel	
+	$odb = new OmsPdoMySQL();
 set_time_limit(0); 
 ini_set("memory_limit", "1024M");
 @$u_num=$_SESSION['re_u_num'];
@@ -293,6 +295,10 @@ if(isset($_POST['zuochuan'])){
 				// }
 				$num = $arr[1];
 			}
+			// 到oms 获取 包裹ID
+			$sql = "SELECT pack_id FROM history_send WHERE order_id = '{$order_id}' AND goods_code = '{$goods_code}'";
+			$res = $odb->getOne($sql);
+			$pack_id = $res['pack_id'];
 			$email = $value['email'];
 			$result = explode(' ',$email);
 			$email = $result[0];
@@ -307,7 +313,7 @@ if(isset($_POST['zuochuan'])){
 			$objSheet->setCellValue("J".$j,$value['add_type']);
 			$objSheet->setCellValue("K".$j,$value['send_method']);
 			$objSheet->setCellValue("L".$j,$value['money']);
-			$objSheet->setCellValue("M".$j,$oms_id);
+			$objSheet->setCellValue("M".$j,$pack_id);
 			$objSheet->setCellValue("N".$j,$email);
 			$objSheet->setCellValue("P".$j,$order_id);
 			$objSheet->setCellValue("R".$j,$value['store']);
