@@ -19,24 +19,31 @@ if(isset($_GET['oms_order_id'])){
 	$res = $odb->execute($sql);
 
 	if(empty($res)){
-		echo json_encode('no');
-	}else{
-		foreach ($res as $value) {
-			$now_station = $value['station'];
-			$now_list = $value['station']."_response_list";
+		//查询发货区平台店铺
+		$sql = "SELECT station FROM send_table where order_id = '{$oms_order_id}'";
+		$res = $odb->execute($sql);
+		if(empty($res)){
+			echo json_encode('no');
+			return false;
 		}
-		$sql = "SELECT * FROM $now_list where order_id = '{$oms_order_id}'";
-		$res1 = $odb->execute($sql);
-		foreach ($res1 as $val) {
-			$oms_id = $val['id'];
-		}
-		// 查询操作日志
-		$sql = "SELECT * FROM oms_log where station = '{$now_station}' AND oms_id = '{$oms_id}' ORDER BY id desc";
-		$res2 = $odb->execute($sql);
-		$final_res['res1'] = $res1;
-		$final_res['res2'] = $res2;
-		echo json_encode($final_res);
 	}
+
+	foreach ($res as $value) {
+		$now_station = $value['station'];
+		$now_list = $value['station']."_response_list";
+	}
+	$sql = "SELECT * FROM $now_list where order_id = '{$oms_order_id}'";
+	$res1 = $odb->execute($sql);
+	foreach ($res1 as $val) {
+		$oms_id = $val['id'];
+	}
+	// 查询操作日志
+	$sql = "SELECT * FROM oms_log where station = '{$now_station}' AND oms_id = '{$oms_id}' ORDER BY id desc";
+	$res2 = $odb->execute($sql);
+	$final_res['res1'] = $res1;
+	$final_res['res2'] = $res2;
+	echo json_encode($final_res);
+	
 	return false;
 };
 
