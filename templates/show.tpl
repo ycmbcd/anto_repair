@@ -280,60 +280,60 @@ function alert_error(e){
     {section name=se loop=$resu1}
     <tr class="onbge">
     	<td style="color:#CF0; background:#333;font-size:12px;"><span style="width:56px; display:block; overflow:hidden;">{$resu1[se].id}</span></td>
-        <td><div style="width:44px; overflow:hidden;"><a href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].u_name}</a></div></td>
-        <td><div style="width:86px; overflow:hidden;"><a href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].start_day}</a></div></td>
-    	<td><div style="width:40px; overflow:hidden;"><a href="mailto:{$resu1[se].email}">{$resu1[se].email}</a></div></td>
-        <td><div style="width:80px; overflow:hidden;"><a href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].order_id}</a></div></td>
-        <td><div style="width:40px; overflow:hidden;"><a href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].good_id}</a></div></td>
-        <td><div style="width:40px; overflow:hidden;"><a href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].store}</a></div></td>
-        <td><div style="width:80px; overflow:hidden;"><a href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].who_id}</a></div></td>
-        <td><div style="width:5px; overflow:hidden;"><a href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].who_phone}</a></div></td>
-        <td><div style="width:5px; overflow:hidden;"><a href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].who_code}</a></div></td>
-        <td><div style="width:5px; overflow:hidden;"><a href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].who_house}</a></div></td>
-        <td><div style="width:5px; overflow:hidden;"><a href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].who_house1}</a></div></td>
-        <td><div style="width:5px; overflow:hidden;"><a href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].who_house2}</a></div></td>
-        <td><div style="width:5px; overflow:hidden;"><a href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].who_name}</a></div></td>
-        <td><div style="width:110px; overflow:hidden;"><a href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].receive_phone}</a></div></td>
-        <td><div style="width:70px; overflow:hidden;"><a href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].receive_code}</a></div></td>
-        <td><div style="width:120px; overflow:hidden;"><a href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].receive_house}</a></div></td>
-        <td><div style="width:20px; overflow:hidden;"><a href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].receive_house1}</a></div></td>
-        <td><div style="width:20px; overflow:hidden;"><a href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].receive_house2}</a></div></td>
-        <td><div style="width:70px; overflow:hidden;"><a href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].receive_name}</a></div></td>
-        <td><div style="width:5px; text-align:right; overflow:hidden;"><a href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].total_money}</a></div></td>
-        <td><div style="width:5px; text-align:right; overflow:hidden;"><a href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].ems_money}</a></div></td>
+        <td><div style="width:44px; overflow:hidden;"><a target="_blank" href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].u_name}</a></div></td>
+        <td><div style="width:86px; overflow:hidden;"><a target="_blank" href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].start_day}</a></div></td>
+    	<td><div style="width:40px; overflow:hidden;"><a target="_blank" href="mailto:{$resu1[se].email}">{$resu1[se].email}</a></div></td>
+        <td><div style="width:80px; overflow:hidden;"><a target="_blank" href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].order_id}</a></div></td>
+        <td><div style="width:40px; overflow:hidden;"><a target="_blank" href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].good_id}</a></div></td>
+        <td><div style="width:40px; overflow:hidden;"><a target="_blank" href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].store}</a></div></td>
+        <td><div style="width:80px; overflow:hidden;"><a target="_blank" href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].who_id}</a></div></td>
+        <td><div style="width:5px; overflow:hidden;"><a target="_blank" href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].who_phone}</a></div></td>
+        <td><div style="width:5px; overflow:hidden;"><a target="_blank" href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].who_code}</a></div></td>
+        <td><div style="width:5px; overflow:hidden;"><a target="_blank" href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].who_house}</a></div></td>
+        <td><div style="width:5px; overflow:hidden;"><a target="_blank" href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].who_house1}</a></div></td>
+        <td><div style="width:5px; overflow:hidden;"><a target="_blank" href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].who_house2}</a></div></td>
+        <td><div style="width:5px; overflow:hidden;"><a target="_blank" href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].who_name}</a></div></td>
+        <td><div style="width:110px; overflow:hidden;"><a target="_blank" href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].receive_phone}</a></div></td>
+        <td><div style="width:70px; overflow:hidden;"><a target="_blank" href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].receive_code}</a></div></td>
+        <td><div style="width:120px; overflow:hidden;"><a target="_blank" href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].receive_house}</a></div></td>
+        <td><div style="width:20px; overflow:hidden;"><a target="_blank" href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].receive_house1}</a></div></td>
+        <td><div style="width:20px; overflow:hidden;"><a target="_blank" href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].receive_house2}</a></div></td>
+        <td><div style="width:70px; overflow:hidden;"><a target="_blank" href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].receive_name}</a></div></td>
+        <td><div style="width:5px; text-align:right; overflow:hidden;"><a target="_blank" href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].total_money}</a></div></td>
+        <td><div style="width:5px; text-align:right; overflow:hidden;"><a target="_blank" href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].ems_money}</a></div></td>
 
-        <td><div style="width:5px; text-align:right; overflow:hidden;"><a href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].bill}</a></div></td>
-        <td><div style="width:5px; overflow:hidden;"><a href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].point}</a></div></td>
-        <td><div style="width:5px; overflow:hidden;"><a href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].cheap}</a></div></td>
-        <td><div style="width:5px; overflow:hidden;"><a href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].tax}</a></div></td>
-        <td><div style="width:230px; overflow:hidden;"><a href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].goods}</a></div></td>
-        <td style="text-align:right;"><div style="width:5px; overflow:hidden;"><a href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].buy_money}</a></div></td>
-        <td><div style="width:5px; overflow:hidden;"><a href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].buy_method}</a></div></td>
-        <td><div style="width:5px; overflow:hidden;"><a href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].to_method}</a></div></td>
-        <td><div style="width:5px; overflow:hidden;"><a href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].send_num}</a></div></td>
-        <td><div style="width:86px; overflow:hidden;"><a href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].send_day}</a></div></td>
-        <td><div style="width:86px; overflow:hidden;"><a href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].method}</a></div></td>
-        <td><div style="width:50px; overflow:hidden;"><a href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].re_good1}</a></div></td>
-        <td><div style="width:50px; overflow:hidden;"><a href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].re_good2}</a></div></td>
-        <td><div style="width:50px; overflow:hidden;"><a href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].re_good3}</a></div></td>
-        <td><div style="width:50px; overflow:hidden;"><a href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].re_good4}</a></div></td>
-        <td><div style="width:50px; overflow:hidden;"><a href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].re_good5}</a></div></td>
-        <td><div style="width:50px; overflow:hidden;"><a href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].add_type}</a></div></td>
-        <td><div style="width:86px; overflow:hidden;"><a href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].over_day}</a></div></td>
-        <td><div style="width:50px; overflow:hidden;"><a href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].pay_method}</a></div></td>
-        <td><div style="width:58px; text-align:right; overflow:hidden;"><a href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].money}</a></div></td>
-        <td><div style="width:58px; text-align:right; overflow:hidden;"><a href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].receive_money}</a></div></td>
-        <td><div style="width:50px; overflow:hidden;"><a href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].send_method}</a></div></td>
-        <td><div style="width:40px; overflow:hidden;"><a href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].is_miss}</a></div></td>
-        <td><div style="width:40px; overflow:hidden;"><a href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].is_bad}</a></div></td>
-        <td><div style="width:40px; overflow:hidden;"><a href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].say_type}</a></div></td>
-        <td><div style="width:40px; overflow:hidden;"><a href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].is_photo}</a></div></td>
-        <td><div style="width:40px; overflow:hidden;"><a href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].is_receive}</a></div></td>
-        <td><div style="width:40px; overflow:hidden;"><a href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].is_money}</a></div></td>
-        <td><div style="width:80px; overflow:hidden;"><a href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].ems}</a></div></td>
-        <td><div style="width:44px; overflow:hidden;"><a href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].u_name}</a></div></td>
-        <td><div style="width:40px; overflow:hidden;"><a href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].u_num}</a></div></td>
-        <td style="background:#FAFFE8;"><div style="width:60px; overflow:hidden;"><a href="./change_list.php?id={$resu1[se].id}&u_num={$resu1[se].u_num}">{$resu1[se].other}</a></div></td>
+        <td><div style="width:5px; text-align:right; overflow:hidden;"><a target="_blank" href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].bill}</a></div></td>
+        <td><div style="width:5px; overflow:hidden;"><a target="_blank" href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].point}</a></div></td>
+        <td><div style="width:5px; overflow:hidden;"><a target="_blank" href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].cheap}</a></div></td>
+        <td><div style="width:5px; overflow:hidden;"><a target="_blank" href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].tax}</a></div></td>
+        <td><div style="width:230px; overflow:hidden;"><a target="_blank" href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].goods}</a></div></td>
+        <td style="text-align:right;"><div style="width:5px; overflow:hidden;"><a target="_blank" href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].buy_money}</a></div></td>
+        <td><div style="width:5px; overflow:hidden;"><a target="_blank" href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].buy_method}</a></div></td>
+        <td><div style="width:5px; overflow:hidden;"><a target="_blank" href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].to_method}</a></div></td>
+        <td><div style="width:5px; overflow:hidden;"><a target="_blank" href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].send_num}</a></div></td>
+        <td><div style="width:86px; overflow:hidden;"><a target="_blank" href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].send_day}</a></div></td>
+        <td><div style="width:86px; overflow:hidden;"><a target="_blank" href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].method}</a></div></td>
+        <td><div style="width:50px; overflow:hidden;"><a target="_blank" href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].re_good1}</a></div></td>
+        <td><div style="width:50px; overflow:hidden;"><a target="_blank" href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].re_good2}</a></div></td>
+        <td><div style="width:50px; overflow:hidden;"><a target="_blank" href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].re_good3}</a></div></td>
+        <td><div style="width:50px; overflow:hidden;"><a target="_blank" href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].re_good4}</a></div></td>
+        <td><div style="width:50px; overflow:hidden;"><a target="_blank" href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].re_good5}</a></div></td>
+        <td><div style="width:50px; overflow:hidden;"><a target="_blank" href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].add_type}</a></div></td>
+        <td><div style="width:86px; overflow:hidden;"><a target="_blank" href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].over_day}</a></div></td>
+        <td><div style="width:50px; overflow:hidden;"><a target="_blank" href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].pay_method}</a></div></td>
+        <td><div style="width:58px; text-align:right; overflow:hidden;"><a target="_blank" href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].money}</a></div></td>
+        <td><div style="width:58px; text-align:right; overflow:hidden;"><a target="_blank" href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].receive_money}</a></div></td>
+        <td><div style="width:50px; overflow:hidden;"><a target="_blank" href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].send_method}</a></div></td>
+        <td><div style="width:40px; overflow:hidden;"><a target="_blank" href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].is_miss}</a></div></td>
+        <td><div style="width:40px; overflow:hidden;"><a target="_blank" href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].is_bad}</a></div></td>
+        <td><div style="width:40px; overflow:hidden;"><a target="_blank" href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].say_type}</a></div></td>
+        <td><div style="width:40px; overflow:hidden;"><a target="_blank" href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].is_photo}</a></div></td>
+        <td><div style="width:40px; overflow:hidden;"><a target="_blank" href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].is_receive}</a></div></td>
+        <td><div style="width:40px; overflow:hidden;"><a target="_blank" href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].is_money}</a></div></td>
+        <td><div style="width:80px; overflow:hidden;"><a target="_blank" href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].ems}</a></div></td>
+        <td><div style="width:44px; overflow:hidden;"><a target="_blank" href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].u_name}</a></div></td>
+        <td><div style="width:40px; overflow:hidden;"><a target="_blank" href="./change_list.php?id={$resu1[se].id}&u_num={$u_num}">{$resu1[se].u_num}</a></div></td>
+        <td style="background:#FAFFE8;"><div style="width:60px; overflow:hidden;"><a target="_blank" href="./change_list.php?id={$resu1[se].id}&u_num={$resu1[se].u_num}">{$resu1[se].other}</a></div></td>
     </tr>
     {/section}
  
