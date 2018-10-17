@@ -255,6 +255,7 @@ function close_btn(){
         <li>保修快递公司：</li>        
         <li>保修快递日期：</li>        
         <li>去信状态：</li>        
+        <li>包裹ID：</li>        
     </ul>
 {if $resu1}
 	{section name=se loop=$resu1}
@@ -291,6 +292,7 @@ function close_btn(){
         <li>{$resu1[se].re_company}</li>
         <li>{$resu1[se].re_date}</li>
         <li>{$resu1[se].re_mail}</li>
+        <li>{$resu1[se].pack_id|default:'-'}</li>
     </ul>
     <ul class="left tr">
     	<li>発送日：</li>

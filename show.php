@@ -259,7 +259,7 @@ if(isset($_POST['zuochuan'])){
 	$objPHPExcel = new PHPExcel();
 	$objSheet = $objPHPExcel->getActiveSheet();
 	$objSheet->setTitle($title_day);//表名
-	$objSheet->setCellValue("A1","商品代码")->setCellValue("B1","数量")->setCellValue("C1","电话")->setCellValue("D1","邮编")->setCellValue("E1","地址")->setCellValue("F1","收件人")->setCellValue("I1","代引金額")->setCellValue("K1","配送方式")->setCellValue("M1","售后ID")->setCellValue("N1","邮箱")->setCellValue("O1","")->setCellValue("P1","售后注文番号")->setCellValue("Q1","")->setCellValue("R1","店铺名")->setCellValue("S1","担当者")->setCellValue("T1","保修快递单")->setCellValue("V1","保修快递日期")->setCellValue("U1","保修快递公司")->setCellValue("W1","终了日");//表头值
+	$objSheet->setCellValue("A1","商品代码")->setCellValue("B1","数量")->setCellValue("C1","电话")->setCellValue("D1","邮编")->setCellValue("E1","地址")->setCellValue("F1","收件人")->setCellValue("I1","代引金額")->setCellValue("K1","配送方式")->setCellValue("M1","售后包裹ID")->setCellValue("N1","邮箱")->setCellValue("O1","")->setCellValue("P1","售后注文番号")->setCellValue("Q1","")->setCellValue("R1","店铺名")->setCellValue("S1","担当者")->setCellValue("T1","保修快递单")->setCellValue("V1","保修快递日期")->setCellValue("U1","保修快递公司")->setCellValue("W1","终了日");//表头值
 	$objSheet->getDefaultStyle()->getFont()->setName("微软雅黑")->setSize(12);//默认字体
 	$objPHPExcel->getActiveSheet()->getStyle('A:W')->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);//垂直居中
 	$objPHPExcel->getActiveSheet()->getStyle('A1:W1')->getFont()->getColor()->setARGB(PHPExcel_Style_Color::COLOR_WHITE);//前景色
@@ -273,7 +273,7 @@ if(isset($_POST['zuochuan'])){
 	$objPHPExcel->getActiveSheet()->getStyle('A')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_LEFT);//左对齐
 	
 		$sql = "
-		SELECT re_good1 as goods_code,receive_phone,receive_code,receive_house,receive_name,id,receive_money,send_method,email,store,u_name,add_type,money,re_express,re_company,re_date,over_day from repair_list where {$the_day} between '{$start_time}' and '{$end_time}' union all select re_good2 as goods_code,receive_phone,receive_code,receive_house,receive_name,id,receive_money,send_method,email,store,u_name,add_type,money,re_express,re_company,re_date,over_day from repair_list where {$the_day} between '{$start_time}' and '{$end_time}' union all select re_good3 as goods_code,receive_phone,receive_code,receive_house,receive_name,id,receive_money,send_method,email,store,u_name,add_type,money,re_express,re_company,re_date,over_day from repair_list where {$the_day} between '{$start_time}' and '{$end_time}' union all select re_good4 as goods_code,receive_phone,receive_code,receive_house,receive_name,id,receive_money,send_method,email,store,u_name,add_type,money,re_express,re_company,re_date,over_day from repair_list where {$the_day} between '{$start_time}' and '{$end_time}' union all select re_good5 as goods_code,receive_phone,receive_code,receive_house,receive_name,id,receive_money,send_method,email,store,u_name,add_type,money,re_express,re_company,re_date,over_day from repair_list where {$the_day} between '{$start_time}' and '{$end_time}';";
+		SELECT re_good1 as goods_code,receive_phone,receive_code,receive_house,receive_name,id,receive_money,send_method,email,store,u_name,add_type,money,re_express,re_company,re_date,over_day,pack_id from repair_list where {$the_day} between '{$start_time}' and '{$end_time}' union all select re_good2 as goods_code,receive_phone,receive_code,receive_house,receive_name,id,receive_money,send_method,email,store,u_name,add_type,money,re_express,re_company,re_date,over_day,pack_id from repair_list where {$the_day} between '{$start_time}' and '{$end_time}' union all select re_good3 as goods_code,receive_phone,receive_code,receive_house,receive_name,id,receive_money,send_method,email,store,u_name,add_type,money,re_express,re_company,re_date,over_day,pack_id from repair_list where {$the_day} between '{$start_time}' and '{$end_time}' union all select re_good4 as goods_code,receive_phone,receive_code,receive_house,receive_name,id,receive_money,send_method,email,store,u_name,add_type,money,re_express,re_company,re_date,over_day,pack_id from repair_list where {$the_day} between '{$start_time}' and '{$end_time}' union all select re_good5 as goods_code,receive_phone,receive_code,receive_house,receive_name,id,receive_money,send_method,email,store,u_name,add_type,money,re_express,re_company,re_date,over_day,pack_id from repair_list where {$the_day} between '{$start_time}' and '{$end_time}';";
 		$res = $db->execute($sql);
 		$j=2;
 
@@ -296,9 +296,9 @@ if(isset($_POST['zuochuan'])){
 				$num = $arr[1];
 			}
 			// 到oms 获取 包裹ID
-			$sql = "SELECT pack_id FROM history_send WHERE order_id = '{$order_id}' AND goods_code = '{$goods_code}'";
-			$res = $odb->getOne($sql);
-			$pack_id = $res['pack_id'];
+			// $sql = "SELECT pack_id FROM history_send WHERE order_id = '{$order_id}' AND goods_code = '{$goods_code}'";
+			// $res = $odb->getOne($sql);
+			// $pack_id = $res['pack_id'];
 			$email = $value['email'];
 			$result = explode(' ',$email);
 			$email = $result[0];
@@ -313,7 +313,7 @@ if(isset($_POST['zuochuan'])){
 			$objSheet->setCellValue("J".$j,$value['add_type']);
 			$objSheet->setCellValue("K".$j,$value['send_method']);
 			$objSheet->setCellValue("L".$j,$value['money']);
-			$objSheet->setCellValue("M".$j,$pack_id);
+			$objSheet->setCellValue("M".$j,$value['pack_id']);
 			$objSheet->setCellValue("N".$j,$email);
 			$objSheet->setCellValue("P".$j,$order_id);
 			$objSheet->setCellValue("R".$j,$value['store']);
