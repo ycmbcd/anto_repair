@@ -162,10 +162,10 @@ $(document).ready(function(){
         <li class="blue">返品：</li>
         <li class="blue">返金：</li>
         <li>追跡番号：</li>
-        <li>备注：</li>
-        <li>操作员：</li>
-        <li>操作ID：</li>
-        <li>流水ID：</li>
+        <li>コメント：</li>
+        <li>担当者：</li>
+        <li>担当ID：</li>
+        <li>システムID：</li>
         <li>対応方法：</li>
     </ul>
     <ul class="left tl" style="width:300px;">
@@ -226,12 +226,12 @@ $(document).ready(function(){
         <li><input type="text" name="other" value="" /></li>
         <li><input style="background:#CCC" type="text" value="{$u_name}" name="ok_name" readonly="readonly"/></li>
         <li><input style="background:#CCC" type="text" value="{$u_num}" name="ok_num" readonly="readonly" /></li>
-        <li><input style="background:#CCC" type="text" value="系统将自动生成" readonly="readonly" /></li>
+        <li><input style="background:#CCC" type="text" value="系统将自动生成(System will auto make)" readonly="readonly" /></li>
         <li><textarea rows="7" name="method"  cols="40" style="resize: none; padding-left:10px; padding-right:10px;"></textarea></li>
     </ul>
     <div class="clear"></div>
     <div class="auto" style="width:200px; margin-top:30px;">
-        	<input id="btn_new" type="button" name="" value="新&nbsp;&nbsp;建 " class="sbtn left" style="height:40px;" />
+        	<input id="btn_new" type="button" name="" value="新&nbsp;&nbsp;規 " class="sbtn left" style="height:40px;" />
         </div>
  
     	<div id="show_box">
@@ -248,7 +248,7 @@ $(document).ready(function(){
 <div style="width:600px;padding-top:4px; padding-left:20px; text-align:left;" class="left">
 Powered by ycmbcd & pd
 </div>
-<div class="right" style="width:600px;height:20px; line-height:20px; font-size:14px;padding-right:20px;">欢迎您：{$u_name} 工号：{$u_num} | <a href="/show.php">返回列表</a> | <a href="logout.php" >退出</a></div>
+<div class="right" style="width:600px;height:20px; line-height:20px; font-size:14px;padding-right:20px;">Welcome: {$u_name} 担当者ID: {$u_num} | <a href="/show.php">もどる</a> | <a href="logout.php" >ログアウト</a></div>
 </div>
 </body>
 </html>

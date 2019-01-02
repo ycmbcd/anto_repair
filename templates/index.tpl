@@ -46,18 +46,18 @@
     <form onkeyup="log()" method="post" class="right">
     	<table style="margin-top:20px;">
         	<tr>
-            	<td style="color:#666;font-size:14px; font-weight:bold;">工 号：</td>
+            	<td style="color:#666;font-size:14px; font-weight:bold;">担当 ID：</td>
                 <td><input style="width:120px;height:20px; font-weight:bold;font-size:16px; color:#C00;" type="text" id="anto_number" name="u_num" /></td>
             </tr>
             <tr style="height:10px;"></tr>
             <tr>
-            	<td style="color:#666;font-size:14px; font-weight:bold;">密 码：</td>
+            	<td style="color:#666;font-size:14px; font-weight:bold;">Password：</td>
                 <td><input style="width:120px;height:20px;font-size:16px; font-weight:bold; color:#C00;" type="password" id="pwd" name="u_pwd" /></td>
             </tr>
             <tr style="height:20px;"></tr>
             <tr>
                 <td colspan="2" align="center"><input style="border-radius: 8px;
-    font-size: 18px;width:140px;height:38px; background:#FFF;cursor:pointer;" type="submit" value="登&nbsp;&nbsp;陆" onmouseover="this.className='login_button_hover'" onmouseout="this.className='login_button'" class="login_button"/>&nbsp;&nbsp;</td>
+    font-size: 18px;width:140px;height:38px; background:#FFF;cursor:pointer;" type="submit" value="ログイン" onmouseover="this.className='login_button_hover'" onmouseout="this.className='login_button'" class="login_button"/>&nbsp;&nbsp;</td>
             </tr>
         </table>
     </form>
@@ -65,7 +65,7 @@
 <div id="footer">
 <div style="padding-top:8px;"></div>
 <div style="padding-right:10px;width:600px; text-align:left; padding-left:10px;" class="left">
-&copy; 2014-2018 ANTO Int'l Trade Co.,Ltd. All Rights Reserved.<br />
+&copy; 2014-2019 ANTO Int'l Trade Co.,Ltd. All Rights Reserved.<br />
 Powered by ycmbcd & pd
 </div>
 </div>

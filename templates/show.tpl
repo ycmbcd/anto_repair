@@ -153,11 +153,11 @@ function alert_error(e){
         <td>
         <input type="hidden" id="ss1" value="{$the_day}"  />
         <select id="s1"  name="the_day">
-            <option value ="all_day">所有日</option>
+            <option value ="all_day">全ての日付</option>
             <option value ="send_day">発送日</option>
-            <option value ="start_day">開始日</option>
-            <option value ="over_day">終了日</option>
-            <option value ="re_date">快递日期</option>
+            <option value ="start_day">対応開始日</option>
+            <option value ="over_day">対応終了日</option>
+            <option value ="re_date">伝票日</option>
 	    </select>
         </td>
         <td>
@@ -171,34 +171,34 @@ function alert_error(e){
         <td>
         <input type="hidden" id="ss2" value="{$send_method}"  />
         <select id="s2" style="width:80px;"  name="send_method">
-        	<option value="no_keywords">无关键字</option>
+        	<option value="no_keywords">キーワード無</option>
             <option value ="email">メルアド</option>
-        	<option value ="id">ID</option>
+        	<option value ="id">システムID</option>
             <option value ="order_id">注文番号</option>
-  			<option value ="good_id">オーク..(拍卖ID)</option>
-            <option value ="who_id">お客様ID</option>
-            <option value ="who_name">ご購入者</option>
-            <option value ="receive_phone">收件人电话</option>
-            <option value ="receive_code">收件人邮编</option>
-            <option value ="receive_house">收件人地址</option>
-            <option value ="receive_house1">收件人地址1</option>
-            <option value ="receive_house2">收件人地址2</option>
-            <option value ="receive_name">收件人名称</option>
-            <option value ="send_num">発送番号</option>
-            <option value ="goods">商品</option>
-            <option value ="store">店舗</option>
+  			<option value ="good_id">ヤフオクID</option>
+            <option value ="who_id">顧客ID</option>
+            <option value ="who_name">注文者名</option>
+            <option value ="receive_phone">届先電話番号</option>
+            <option value ="receive_code">届先郵便番号</option>
+            <option value ="receive_house">届先住所</option>
+            <option value ="receive_house1">届先住所1</option>
+            <option value ="receive_house2">届先住所2</option>
+            <option value ="receive_name">届先名</option>
+            <option value ="send_num">伝票番号-注文</option>
+            <option value ="goods">商品SKU</option>
+            <option value ="store">店舗ID</option>
             <option value ="is_miss">ミス</option>
             <option value ="is_bad">評価</option>
             <option value ="is_receive">返品</option>
             <option value ="is_money">返金</option>
-            <option value="other">备注</option>
+            <option value="other">コメント</option>
 		</select>
         </td>
         <td><input style="width:200px;" id="s3" name="key_words" type="text" value="{$key_words}" /></td>
         <td>
         <input type="hidden" id="ss4" value="{$kefu}"  /> 
         <select id="s4"  name="kefu"> 
-        	<option value ="team">工号</option>
+        	<option value ="team">担当ID</option>
         	{if $team}
         		{section name=se loop=$team}
   			<option value ="{$team[se].u_num}">{$team[se].u_num} </option> 
@@ -206,10 +206,10 @@ function alert_error(e){
   		{/if}
 		</select>
         </td>
-        <td><input type="submit" name="search" value="检索"/></td>
-        <td><input type="submit" name="down" value="导出"/></td>
-        <td><input type="submit" name="zuochuan" value="佐川" /> | </td>
-        <td><button style="background:#ffc;"><a href="add_new.php">新增</a></button></td>
+        <td><input type="submit" name="search" value="検索"/></td>
+        <td><input type="submit" name="down" value="抽出"/></td>
+        <td><input type="submit" name="zuochuan" value="売上表" /> | </td>
+        <td><button style="background:#ffc;"><a href="add_new.php">新規追加</a></button></td>
     </tr>
 </table>
 </form>
@@ -350,20 +350,20 @@ Powered by ycmbcd & pd
 <form method="post" class="left">
 <table style="color:#E7E7E7;">
 	<tr>
-    	<td><span style="color:cf0">共{$count}条</span> , </td>
-    	<td>当前 {$now_page} / {$page_rel} 页
-    <a href="show.php?now_page={$now_page}&end={$end}&page_method=pre&count={$count}&page_rel={$page_rel}&oSql={$oSql}">上一页</a>
-    <a href="show.php?kefyu={$kefu}&key_words={$key_words}&now_page={$now_page}&end={$end}&page_method=next&count={$count}&page_rel={$page_rel}&oSql={$oSql}">下一页</a>
-    每页<span id="u_count">{$u_count}</span>条
+    	<td><span style="color:cf0">Total: {$count}</span> , </td>
+    	<td>NowPage {$now_page} / TotalPage {$page_rel}  | 
+    <a href="show.php?now_page={$now_page}&end={$end}&page_method=pre&count={$count}&page_rel={$page_rel}&oSql={$oSql}"><-Pre</a>
+    <a href="show.php?kefyu={$kefu}&key_words={$key_words}&now_page={$now_page}&end={$end}&page_method=next&count={$count}&page_rel={$page_rel}&oSql={$oSql}">Next-></a>
+    <span id="u_count">{$u_count}</span>/Page   | 
     </td>
-    	<td><input name="page_jump" style="width:20px;" type="text" />页<input name="jump" type="submit" value="Go" /></td>
-    	<td>关键字:</td>
+    	{* <td><input name="page_jump" style="width:20px;" type="text" />页<input name="jump" type="submit" value="Go" /></td> *}
+    	<td>KeyWords:</td>
     	<td><input id="sss" style="width:100px;" type="text" value="{$key_words}" /></td>
-        <td><input id="sbtn" type="button" value="标 记"/></td>
+        <td><input id="sbtn" type="button" value="Mark"/></td>
     </tr>
 </table>
 </form>
-&nbsp;| 欢迎您：{$u_name} | 工号：{$u_num} | <a href="/add_list.php">数据添加</a> | <a href="/change_pwd.php">账户管理</a> | <a href="logout.php" >退出</a>
+&nbsp;| Welcome: {$u_name} | 担当者ID: {$u_num} | <a href="/add_list.php">数据添加</a> | <a href="/change_pwd.php">账户管理</a> | <a href="logout.php" >ログアウト</a>
 </div>
 
 </div>

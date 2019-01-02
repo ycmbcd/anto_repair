@@ -251,11 +251,11 @@ function close_btn(){
         <li>購入方法：</li>
         <li>発送方法：</li>
         <li>発送番号：</li>        
-        <li>保修快递单号：</li>        
-        <li>保修快递公司：</li>        
-        <li>保修快递日期：</li>        
-        <li>去信状态：</li>        
-        <li>包裹ID：</li>        
+        <li>保証伝票番号：</li>        
+        <li>保証運送業者：</li>        
+        <li>保証伝票日付：</li>        
+        <li>送信ステータス：</li>        
+        <li>梱包ID：</li>        
     </ul>
 {if $resu1}
 	{section name=se loop=$resu1}
@@ -317,10 +317,10 @@ function close_btn(){
         <li class="blue">返品：</li>
         <li class="blue">返金：</li>
         <li>追跡番号：</li>
-        <li>备注：</li>
-        <li>操作员：</li>
-        <li>操作ID：</li>
-        <li>流水ID：</li>
+        <li>コメント：</li>
+        <li>担当者：</li>
+        <li>担当ID：</li>
+        <li>システムID：</li>
         <li>対応方法：</li>
     </ul>
     <ul class="left tl" style="width:300px;">
@@ -407,7 +407,7 @@ function close_btn(){
     </ul>
     <div class="clear"></div>
     <div class="auto" style="width:200px; margin-top:30px;">
-        	<input id="btn_new" type="button"  value="新&nbsp;&nbsp;建 " class="sbtn left" style="height:40px;" />
+        	<input id="btn_new" type="button"  value="新&nbsp;&nbsp;規 " class="sbtn left" style="height:40px;" />
     		<input id="btn_update" type="button"   value="更&nbsp;&nbsp;新 " class="sbtn right" style="height:40px;" />
         </div>
     {/section}
@@ -423,13 +423,13 @@ function close_btn(){
 </div>
 <div class="clear"></div>
 <div id="footer1">
-<div style="width:400px;padding-top:4px; padding-left:20px; text-align:left;" class="left">
+<div style="width:370px;padding-top:4px; padding-left:20px; text-align:left;" class="left">
 Powered by ycmbcd & pd
 </div>
-<div class="right" style="width:620px;height:20px; line-height:20px; font-size:14px;padding-right:10px;">
+<div class="right" style="width:700px;height:20px; line-height:20px; font-size:14px;padding-right:10px;">
     <input placeholder="注文番号" type="text" id="oms_order_id" />
-    <a href="#" onclick="look_oms()">→ 查询oms</a> | 
-    欢迎您：{$u_name} 工号：{$u_num} | <a href="/show.php">返回列表</a> | <a href="logout.php" >退出</a></div>
+    <a href="#" onclick="look_oms()">→ OMS検索</a> | 
+    Welcome: {$u_name} 担当者ID: {$u_num} | <a href="/show.php">もどる</a> | <a href="logout.php" >ログアウト</a></div>
 </div>
 </body>
 </html>
