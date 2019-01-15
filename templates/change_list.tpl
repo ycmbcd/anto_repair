@@ -145,6 +145,9 @@ function close_btn(){
 }
 </script>
 <style>
+.pointer{
+    cursor:pointer;
+}
 #oms_order_id{
     width:200px !important;
     height: 18px !important;
@@ -197,9 +200,66 @@ function close_btn(){
 #oms_log{
     color: #dedede;
 }
+.fix_sku{
+    width: 260px;
+    padding: 10px;
+    position: fixed;
+    font-size: 12px;
+    top: 10%;
+    right:0;
+    border:1px solid #ddd;
+    display:none;
+}
+
+#search_pack,#search_sku{
+    padding-left: 4px;
+    border:1px solid #ddd;
+}
+#sku_list,#sku_list2{
+    padding-left:4px;
+    margin-top:2px;
+    background:#FFF;
+    color:#297979;
+}
+.sku_line{
+    border-bottom: 1px dotted #ddd;
+}
+.sku_input{
+    width: 260px;
+    border:none;
+}
+#show_fix_sku{
+    width: 54px;
+    padding:2px 4px;
+    position: fixed;
+    font-size: 12px;
+    top: 5%;
+    right: 0;
+    color:#FFF;
+    background:#607088;
+    border: 1px solid #000;
+    text-align: right;
+    cursor:pointer;
+}
+#show_fix_sku:hover{
+    background:#FFF;
+    color:#2a2a2a;
+}
 </style>
 {/literal}
 </head>
+<div id="show_fix_sku" onclick="show_fix_sku()">
+    SKU 検索
+</div>
+<div class="fix_sku">
+    <input type="text" id="search_pack" onKeyUp="search_pack()" placeholder="セット検索（套装查询）" />
+    <ul id="sku_list">
+    </ul>
+    <hr>
+    <input type="text" id="search_sku" onKeyUp="search_sku()" placeholder="SKU検索（SKU查询）" />
+    <ul id="sku_list2">
+    </ul>
+</div>
 <div class="shadow_box">
     <div style="position: absolute;overflow: auto;height: 600px;">
         <table style="height: 300px;" id="oms_info" class="tt"></table>
@@ -321,7 +381,7 @@ function close_btn(){
         <li>担当者：</li>
         <li>担当ID：</li>
         <li>システムID：</li>
-        <li>対応方法：</li>
+        <li>対応方法：<h6 class="pointer" style="color:#297979;" onclick="add_date()">（日付時間の挿入→）</h6></li>
     </ul>
     <ul class="left tl" style="width:300px;">
     	<li><input type="text" name="send_day" value="{$resu1[se].send_day}" onclick="SelectDate(this,'yyyy-MM-dd')" /></li>
@@ -403,7 +463,8 @@ function close_btn(){
         <li><input class="cccc" type="text" value="{$resu1[se].u_name}" name="ok_name" readonly="readonly"/></li>
         <li><input class="cccc" type="text" value="{$resu1[se].u_num}" name="ok_num" readonly="readonly" /></li>
         <li><input class="cccc" type="text" value="{$resu1[se].id}" readonly="readonly" /></li>
-        <li><textarea  id="textarea" onKeyUp="psp()" rows="14" name="method"  cols="45" style="background:#FFFFF1;resize: none; padding-left:10px; padding-right:10px;">{$resu1[se].method}</textarea></li>
+        <li><textarea  id="textarea" onKeyUp="psp()" rows="14" name="method"  cols="45" style="background:#FFFFF1;resize: none; padding-left:10px; padding-right:10px;">{$resu1[se].method}</textarea>
+        </li>
     </ul>
     <div class="clear"></div>
     <div class="auto" style="width:200px; margin-top:30px;">
@@ -429,7 +490,92 @@ Powered by ycmbcd & pd
 <div class="right" style="width:700px;height:20px; line-height:20px; font-size:14px;padding-right:10px;">
     <input placeholder="注文番号" type="text" id="oms_order_id" />
     <a href="#" onclick="look_oms()">→ OMS検索</a> | 
-    Welcome: {$u_name} 担当者ID: {$u_num} | <a href="/show.php">もどる</a> | <a href="logout.php" >ログアウト</a></div>
+    Welcome: <span id="now_holder">{$u_name}</span> 担当者ID: {$u_num} | <a href="/show.php">もどる</a> | <a href="logout.php" >ログアウト</a></div>
 </div>
+
 </body>
 </html>
+<script>
+function add_date(){
+    var now_date = getNowFormatDate();
+    var txt_val = $('#textarea').val();
+    var now_holder = $('#now_holder').text();
+    $('#textarea').val(txt_val+now_date+' @'+now_holder+' ');
+}
+
+function getNowFormatDate() {
+    var date = new Date();
+    var seperator1 = "-";
+    var year = date.getFullYear();
+    var month = date.getMonth() + 1;
+    var strDate = date.getDate();
+    var hour = date.getHours(); // 时
+    var minutes = date.getMinutes(); // 分
+    var seconds = date.getSeconds() //秒
+    if (month >= 1 && month <= 9) {
+        month = "0" + month;
+    }
+    if (strDate >= 0 && strDate <= 9) {
+        strDate = "0" + strDate;
+    }
+    if (minutes >= 1 && minutes <= 9) {
+        minutes = "0" + minutes;
+    }
+    if (seconds >= 0 && seconds <= 9) {
+        seconds = "0" + seconds;
+    }
+    var currentdate = year + seperator1 + month + seperator1 + strDate + ' ' + hour + ':' + minutes + ':' + seconds;
+    return currentdate;
+}
+function search_pack(){
+    var search_pack = $("#search_pack").val();
+    if(search_pack == ''){
+        $('#sku_list').html('');
+    }else{
+        $.ajax({
+            type:"GET",
+            url:"/change_list.php",
+            dataType: 'json',
+            data: "search_pack="+search_pack,
+            success:function(data){
+                var html = '';
+                $.each(data,function(index,json){
+                html += '<li class="sku_line"><input readonly class="sku_input" type="text" value="'+json.goods_code+'"/></li>';
+                });
+                $('#sku_list').html(html);
+            }
+        });
+    }
+}
+function search_sku(){
+    var search_sku = $("#search_sku").val();
+    if(search_sku == ''){
+        $('#sku_list2').html('');
+    }else{
+        $.ajax({
+            type:"GET",
+            url:"/change_list.php",
+            dataType: 'json',
+            data: "search_sku="+search_sku,
+            success:function(data){
+                var html = '';
+                $.each(data,function(index,json){
+                html += '<li class="sku_line"><input readonly class="sku_input" type="text" value="'+json.goods_code+'"/></li>';
+                });
+                $('#sku_list2').html(html);
+            }
+        });
+    }
+}
+var sku_status = 0;
+function show_fix_sku(){
+    if(sku_status == 0){
+        sku_status = 1;
+        $('.fix_sku').show(100);
+    }else{
+        sku_status = 0;
+        $('.fix_sku').hide(100);
+    }
+    
+}
+</script>

@@ -2,12 +2,30 @@
 //开启session
 session_start();
 require_once "tpl.class.php";
+require_once "./pdo/repo.class.php";
 require_once "db.php";
 @$u_num=$_SESSION['re_u_num'];
 	if($u_num==""){
 	echo "<script>alert('您还没有登陆，请登陆！');window.location='index.php';</script>";
 }else{
 	$smarty->assign("u_num",$u_num);
+}
+$rdb = new RepoPdoMySQL();
+
+// sku 套装查询
+if(isset($_GET['search_pack'])){
+	$search_pack = addslashes($_GET['search_pack']);
+	$sql = "SELECT goods_code FROM pack_table WHERE pack_name = '{$search_pack}'";
+	$res = $rdb->getAll($sql);
+	echo json_encode($res);
+	return false;
+}
+if(isset($_GET['search_sku'])){
+	$search_sku = addslashes($_GET['search_sku']);
+	$sql = "SELECT goods_code FROM goods_type WHERE goods_code like '%{$search_sku}%' LIMIT 20";
+	$res = $rdb->getAll($sql);
+	echo json_encode($res);
+	return false;
 }
 
 //查询OMS信息
