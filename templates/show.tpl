@@ -352,8 +352,8 @@ Powered by ycmbcd & pd
 	<tr>
     	<td><span style="color:cf0">Total: {$count}</span> , </td>
     	<td>NowPage {$now_page} / TotalPage {$page_rel}  | 
-    <a href="show.php?now_page={$now_page}&end={$end}&page_method=pre&count={$count}&page_rel={$page_rel}&oSql={$oSql}"><-Pre</a>
-    <a href="show.php?kefyu={$kefu}&key_words={$key_words}&now_page={$now_page}&end={$end}&page_method=next&count={$count}&page_rel={$page_rel}&oSql={$oSql}">Next-></a>
+    <a href="show.php?now_page={$now_page}&end={$end}&page_method=pre&count={$count}&page_rel={$page_rel}&oSql={$oSql}">←Pre</a>
+    <a href="show.php?kefyu={$kefu}&key_words={$key_words}&now_page={$now_page}&end={$end}&page_method=next&count={$count}&page_rel={$page_rel}&oSql={$oSql}">Next→</a>
     <span id="u_count">{$u_count}</span>/Page   | 
     </td>
     	{* <td><input name="page_jump" style="width:20px;" type="text" />页<input name="jump" type="submit" value="Go" /></td> *}
