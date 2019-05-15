@@ -276,12 +276,27 @@ if(isset($_POST['zuochuan'])){
 		SELECT re_good1 as goods_code,receive_phone,receive_code,receive_house,receive_name,id,receive_money,send_method,email,store,u_name,add_type,money,re_express,re_company,re_date,over_day,pack_id from repair_list where {$the_day} between '{$start_time}' and '{$end_time}' union all select re_good2 as goods_code,receive_phone,receive_code,receive_house,receive_name,id,receive_money,send_method,email,store,u_name,add_type,money,re_express,re_company,re_date,over_day,pack_id from repair_list where {$the_day} between '{$start_time}' and '{$end_time}' union all select re_good3 as goods_code,receive_phone,receive_code,receive_house,receive_name,id,receive_money,send_method,email,store,u_name,add_type,money,re_express,re_company,re_date,over_day,pack_id from repair_list where {$the_day} between '{$start_time}' and '{$end_time}' union all select re_good4 as goods_code,receive_phone,receive_code,receive_house,receive_name,id,receive_money,send_method,email,store,u_name,add_type,money,re_express,re_company,re_date,over_day,pack_id from repair_list where {$the_day} between '{$start_time}' and '{$end_time}' union all select re_good5 as goods_code,receive_phone,receive_code,receive_house,receive_name,id,receive_money,send_method,email,store,u_name,add_type,money,re_express,re_company,re_date,over_day,pack_id from repair_list where {$the_day} between '{$start_time}' and '{$end_time}';";
 		$res = $db->execute($sql);
 		$j=2;
+		foreach ($res as $key => $row) {
+			$money[$key] = $row['money'];
+		}
+		array_multisort($money, SORT_DESC, $res);
+
+		$now_item = '';
+		$now_money = 0;
 
 		foreach ($res as $key => $value) {
 			//如果goods_code为空，跳过
 			if($value['goods_code']==""){
 				continue;
 			}
+			// 订单重复总金额跳过
+			if($value['id'] == $now_item){
+				$now_money = 0;
+			}else{
+				$now_item = $value['id'];
+				$now_money = $value['money'];
+			}
+			// echo $now_item.'-----'.$now_money.'<hr>';
 			//售后id拼接,注文番号
 			$oms_id="b".$value['id'];
 			$order_id="b".$value['id'];
@@ -312,7 +327,7 @@ if(isset($_POST['zuochuan'])){
 			$objSheet->setCellValue("I".$j,$value['receive_money']);
 			$objSheet->setCellValue("J".$j,$value['add_type']);
 			$objSheet->setCellValue("K".$j,$value['send_method']);
-			$objSheet->setCellValue("L".$j,$value['money']);
+			$objSheet->setCellValue("L".$j,$now_money);
 			$objSheet->setCellValue("M".$j,$value['pack_id']);
 			$objSheet->setCellValue("N".$j,$email);
 			$objSheet->setCellValue("P".$j,$order_id);
