@@ -277,9 +277,9 @@ if(isset($_POST['zuochuan'])){
 		$res = $db->execute($sql);
 		$j=2;
 		foreach ($res as $key => $row) {
-			$money[$key] = $row['money'];
+			$receive_phone[$key] = $row['receive_phone'];
 		}
-		array_multisort($money, SORT_DESC, $res);
+		array_multisort($receive_phone, SORT_DESC, $res);
 
 		$now_item = '';
 		$now_money = 0;
