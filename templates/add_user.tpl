@@ -57,7 +57,7 @@
 <div style="padding:5px 0 0 20px; width:460px;" class="left">
 <img class="left" style="border:1px solid #CCC;" src="../images/anto1.jpg" width="50" />
 <div style="width:400px;padding-top:4px; text-align:left;" class="right">
-&copy; 2014-2019 ANTO Int'l Trade Co.,Ltd. All Rights Reserved.<br />
+&copy; 2014-2020 ANTO Int'l Trade Co.,Ltd. All Rights Reserved.<br />
 Powered by ycmbcd & pd
 </div>
 </div>

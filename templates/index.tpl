@@ -65,7 +65,7 @@
 <div id="footer">
 <div style="padding-top:8px;"></div>
 <div style="padding-right:10px;width:600px; text-align:left; padding-left:10px;" class="left">
-&copy; 2014-2019 ANTO Int'l Trade Co.,Ltd. All Rights Reserved.<br />
+&copy; 2014-2020 ANTO Int'l Trade Co.,Ltd. All Rights Reserved.<br />
 Powered by ycmbcd & pd
 </div>
 </div>
