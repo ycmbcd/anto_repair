@@ -419,6 +419,8 @@ function close_btn(){
         <input type="hidden" value="{$resu1[se].send_method}" id="ss8" />
         <select id="s8"  name="send_method"  style="background:#FFFFF1;">
         	<option value ="-">-</option>
+  			<option value ="ゆうパケット">ゆうパケット</option>
+  			<option value ="ゆうパック">ゆうパック</option>
   			<option value ="宅配便">宅配便</option>
             <option value ="DM便">DM便</option>
             <option value ="ネコポス">ネコポス</option>
