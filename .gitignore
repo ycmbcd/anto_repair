@@ -9,3 +9,5 @@ uploads/
 data.csv
 pdo/.DS_Store
 .DS_Store
+pdo/oms.class.php
+pdo/repo.class.php
