@@ -27,6 +27,14 @@ if(isset($_GET['search_sku'])){
 	echo json_encode($res);
 	return false;
 }
+if(isset($_GET['get_sku_repo'])){
+	$get_sku_repo = addslashes($_GET['get_sku_repo']);
+	$sql = "SELECT a_repo,b_repo FROM goods_type WHERE goods_code = '{$get_sku_repo}'";
+	$res = $rdb->getOne($sql);
+	echo json_encode($res);
+	return false;
+}
+
 
 //查询OMS信息
 if(isset($_GET['oms_order_id'])){

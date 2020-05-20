@@ -209,6 +209,7 @@ function close_btn(){
     right:0;
     border:1px solid #ddd;
     display:none;
+    background: #fff9d2;
 }
 
 #search_pack,#search_sku{
@@ -218,7 +219,6 @@ function close_btn(){
 #sku_list,#sku_list2{
     padding-left:4px;
     margin-top:2px;
-    background:#FFF;
     color:#297979;
 }
 .sku_line{
@@ -227,6 +227,7 @@ function close_btn(){
 .sku_input{
     width: 260px;
     border:none;
+    background: #fff9d2;
 }
 #show_fix_sku{
     width: 54px;
@@ -245,6 +246,9 @@ function close_btn(){
     background:#FFF;
     color:#2a2a2a;
 }
+.repo_box{
+    display: none;
+}
 </style>
 {/literal}
 </head>
@@ -259,6 +263,12 @@ function close_btn(){
     <input type="text" id="search_sku" onKeyUp="search_sku()" placeholder="SKU検索（SKU查询）" />
     <ul id="sku_list2">
     </ul>
+    <div class="repo_box">
+        <div style="margin-top: 10px;">
+            CN中國在庫数：<span id="repo_ch" style="color:red;"></span>&nbsp;&nbsp;
+            JP日本在庫数：<span id="repo_jp" style="color:green;"></span>
+        </div>
+    </div>
 </div>
 <div class="shadow_box">
     <div style="position: absolute;overflow: auto;height: 600px;">
@@ -549,7 +559,28 @@ function search_pack(){
         });
     }
 }
+
+function get_sku_repo(sku){
+    $('#search_sku').val(sku);
+    $('#sku_list2').hide();
+    $.ajax({
+        type:"GET",
+        url:"/change_list.php",
+        dataType: 'json',
+        data: "get_sku_repo="+sku,
+        success:function(data){
+            var a_repo = data['a_repo'];
+            var b_repo = data['b_repo'];
+            $('.repo_box').show();
+            $('#repo_ch').html(a_repo);
+            $('#repo_jp').html(b_repo);
+        }
+    });
+}
+
 function search_sku(){
+    $('.repo_box').hide();
+    $('#sku_list2').show();
     var search_sku = $("#search_sku").val();
     if(search_sku == ''){
         $('#sku_list2').html('');
@@ -562,7 +593,7 @@ function search_sku(){
             success:function(data){
                 var html = '';
                 $.each(data,function(index,json){
-                html += '<li class="sku_line"><input readonly class="sku_input" type="text" value="'+json.goods_code+'"/></li>';
+                html += '<li class="sku_line" onclick="get_sku_repo(\''+json.goods_code+'\')"><input readonly class="sku_input" type="text" value="'+json.goods_code+'"/></li>';
                 });
                 $('#sku_list2').html(html);
             }
