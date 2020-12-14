@@ -24,4 +24,4 @@ tpl.class.php Smarty配置文件 <br>
 
 ---
 
-### © 2014-2020 ANTO Int'l Trade Co.,Ltd. All Rights Reserved. 上海安藤国际贸易有限公司
+### © 2014-2021 ANTO Int'l Trade Co.,Ltd. All Rights Reserved. 上海安藤国际贸易有限公司
